@@ -34,9 +34,10 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/health").permitAll()
-                        // ===== NA PROVA: regras por rota (descomente e ajuste) =====
-                        // .requestMatchers(HttpMethod.POST, "/recurso").hasRole("ADMIN")
-                        // .requestMatchers(HttpMethod.GET, "/recurso").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers(HttpMethod.POST, "/artigos").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/artigos/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/artigos").hasAnyRole("ADMIN", "USER")
+
                         .anyRequest().authenticated()
                 )
                 .csrf(AbstractHttpConfigurer::disable)
