@@ -9,7 +9,6 @@ export function useApi() {
   const [email, setEmail] = useState('')
   const [pronto, setPronto] = useState(false)
 
-  // Ao logar: abre o crachá e lê cargos e e-mail
   useEffect(() => {
     if (!isAuthenticated) return
     getAccessTokenSilently()
@@ -21,7 +20,6 @@ export function useApi() {
       .finally(() => setPronto(true))
   }, [isAuthenticated, getAccessTokenSilently])
 
-  // Chama o back já com o crachá no header
   const apiFetch = useCallback(async (path, { method = 'GET', body } = {}) => {
     const token = await getAccessTokenSilently()
     const resp = await fetch(`/api${path}`, {

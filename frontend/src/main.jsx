@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')).render(
       domain="dev-ws7izgxg5afd106q.us.auth0.com"
       clientId="jXawa4E0EfQ3iBqDag9kbCx7eCTYPtZ7"
       authorizationParams={{
-        audience: "https://dev-ws7izgxg5afd106q.us.auth0.com/api/v2/",
+        audience: "https://artigos-api",
         redirect_uri: window.location.origin,
       }}
       cacheLocation="localstorage"
